@@ -3,66 +3,52 @@
      viewBox="0 0 1440 320" width="1440" height="320">
 
 <defs>
-    <!-- Background ink-cyber gradient -->
+    <!-- Background ink night gradient -->
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#050811"/>
-        <stop offset="45%" stop-color="#0b1324"/>
-        <stop offset="80%" stop-color="#120c1f"/>
-        <stop offset="100%" stop-color="#04060d"/>
+        <stop offset="0%" stop-color="#070a12"/>
+        <stop offset="50%" stop-color="#0f1726"/>
+        <stop offset="100%" stop-color="#060910"/>
     </linearGradient>
 
-    <!-- Neon Cyan & Magenta Gradients -->
-    <linearGradient id="neonCyan" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stop-color="#00f2fe"/>
-        <stop offset="100%" stop-color="#4facfe"/>
-    </linearGradient>
-
-    <linearGradient id="neonPink" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stop-color="#ff007f"/>
-        <stop offset="100%" stop-color="#7928ca"/>
-    </linearGradient>
-
-    <linearGradient id="goldCyanTitle" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stop-color="#dfb76c"/>
-        <stop offset="40%" stop-color="#fff5db"/>
-        <stop offset="70%" stop-color="#a6f1ff"/>
-        <stop offset="100%" stop-color="#00f2fe"/>
-    </linearGradient>
-
-    <!-- Mountain ink layers -->
+    <!-- Mountain gradients (ink wash layers) -->
     <linearGradient id="mtnFar" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#3d1e56" stop-opacity="0.35"/>
-        <stop offset="100%" stop-color="#090f1d" stop-opacity="0.05"/>
+        <stop offset="0%" stop-color="#2a3d54" stop-opacity="0.35"/>
+        <stop offset="100%" stop-color="#0c131f" stop-opacity="0.05"/>
     </linearGradient>
 
     <linearGradient id="mtnMid" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#16293d" stop-opacity="0.8"/>
-        <stop offset="100%" stop-color="#070c14" stop-opacity="0.3"/>
+        <stop offset="0%" stop-color="#1f2d3e" stop-opacity="0.75"/>
+        <stop offset="100%" stop-color="#0a1018" stop-opacity="0.2"/>
     </linearGradient>
 
     <linearGradient id="mtnNear" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#0c1724" stop-opacity="0.95"/>
-        <stop offset="100%" stop-color="#04070c" stop-opacity="0.9"/>
+        <stop offset="0%" stop-color="#121b27" stop-opacity="0.95"/>
+        <stop offset="100%" stop-color="#060910" stop-opacity="0.8"/>
     </linearGradient>
 
-    <!-- Cyber Moon Glow -->
+    <!-- Moon glow -->
     <radialGradient id="moonGlow" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stop-color="#e8ffff" stop-opacity="0.98"/>
-        <stop offset="45%" stop-color="#a8f5ff" stop-opacity="0.75"/>
-        <stop offset="75%" stop-color="#00f2fe" stop-opacity="0.25"/>
-        <stop offset="100%" stop-color="#00f2fe" stop-opacity="0"/>
+        <stop offset="0%" stop-color="#fffef0" stop-opacity="0.95"/>
+        <stop offset="55%" stop-color="#faecc5" stop-opacity="0.7"/>
+        <stop offset="80%" stop-color="#dfcf9f" stop-opacity="0.25"/>
+        <stop offset="100%" stop-color="#dfcf9f" stop-opacity="0"/>
     </radialGradient>
 
-    <!-- Neon Glow Filters -->
-    <filter id="cyanGlow" x="-30%" y="-30%" width="160%" height="160%">
-        <feGaussianBlur stdDeviation="3.5" result="blur"/>
-        <feMerge>
-            <feMergeNode in="blur"/>
-            <feMergeNode in="SourceGraphic"/>
-        </feMerge>
-    </filter>
+    <!-- Red Seal Gradient (Chu Sa) -->
+    <linearGradient id="sealGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#cf3030"/>
+        <stop offset="100%" stop-color="#8a1717"/>
+    </linearGradient>
 
-    <filter id="pinkGlow" x="-30%" y="-30%" width="160%" height="160%">
+    <!-- Golden text gradient -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#dfb76c"/>
+        <stop offset="50%" stop-color="#fff6d6"/>
+        <stop offset="100%" stop-color="#dfb76c"/>
+    </linearGradient>
+
+    <!-- Soft glow filter -->
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
         <feGaussianBlur stdDeviation="3" result="blur"/>
         <feMerge>
             <feMergeNode in="blur"/>
@@ -71,209 +57,167 @@
     </filter>
 
     <!-- Moon Halo -->
-    <filter id="moonHalo" x="-60%" y="-60%" width="220%" height="220%">
-        <feGaussianBlur stdDeviation="16" result="glow"/>
+    <filter id="moonHalo" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="15" result="glow"/>
         <feMerge>
             <feMergeNode in="glow"/>
             <feMergeNode in="SourceGraphic"/>
         </feMerge>
     </filter>
-
-    <!-- Perspective Cyber Grid at the lake horizon -->
-    <pattern id="cyberGrid" width="40" height="20" patternUnits="userSpaceOnUse">
-        <line x1="0" y1="0" x2="40" y2="0" stroke="#00f2fe" stroke-opacity="0.08" stroke-width="1"/>
-        <line x1="0" y1="0" x2="0" y2="20" stroke="#00f2fe" stroke-opacity="0.08" stroke-width="1"/>
-    </pattern>
 </defs>
 
-<!-- 1. Background Ink Canvas -->
+<!-- 1. Background Canvas -->
 <rect width="1440" height="320" fill="url(#bgGrad)"/>
 
-<!-- 2. Cyber Water Grid Plane (Lưới phản chiếu mặt hồ năng lượng) -->
-<rect y="220" width="1440" height="100" fill="url(#cyberGrid)" opacity="0.6"/>
-
-<!-- 3. Starfield & Cyber Embers (Bụi sao & hạt photon lấp lánh) -->
-<g opacity="0.5">
-    <circle cx="150" cy="40" r="1" fill="#00f2fe"/>
-    <circle cx="280" cy="65" r="1.5" fill="#e0ffff">
-        <animate attributeName="opacity" values="0.2;1;0.2" dur="3s" repeatCount="indefinite"/>
+<!-- 2. Traditional Rice Paper Texture / Subtle Stars -->
+<g opacity="0.4">
+    <circle cx="120" cy="50" r="1" fill="#dfd0b5"/>
+    <circle cx="280" cy="70" r="1.5" fill="#dfd0b5">
+        <animate attributeName="opacity" values="0.2;0.8;0.2" dur="3s" repeatCount="indefinite"/>
     </circle>
-    <circle cx="480" cy="35" r="1" fill="#ff79c6"/>
-    <circle cx="680" cy="55" r="1.2" fill="#00f2fe"/>
-    <circle cx="920" cy="70" r="1.5" fill="#4facfe">
+    <circle cx="450" cy="40" r="1" fill="#dfd0b5"/>
+    <circle cx="950" cy="60" r="1.5" fill="#dfd0b5">
         <animate attributeName="opacity" values="0.3;1;0.3" dur="4s" repeatCount="indefinite"/>
     </circle>
-    <circle cx="1320" cy="50" r="1.2" fill="#ff007f"/>
+    <circle cx="1120" cy="45" r="1" fill="#dfd0b5"/>
+    <circle cx="1300" cy="80" r="1.2" fill="#dfd0b5"/>
+    <circle cx="650" cy="75" r="1" fill="#dfd0b5"/>
 </g>
 
-<!-- 4. Giant Hologram Moon with HUD Radar Rings (Vầng Trăng Cổ Tự viền HUD Cyber) -->
-<g transform="translate(1120, 115)">
-    <!-- Base luminous moon -->
-    <circle cx="0" cy="0" r="72" fill="url(#moonGlow)" filter="url(#moonHalo)">
-        <animate attributeName="opacity" values="0.88;0.98;0.88" dur="5s" repeatCount="indefinite"/>
+<!-- 3. Giant Luminous Moon (Vầng Trăng Cổ Tự) -->
+<g transform="translate(1120, 110)">
+    <circle cx="0" cy="0" r="75" fill="url(#moonGlow)" filter="url(#moonHalo)">
+        <animate attributeName="opacity" values="0.88;0.98;0.88" dur="6s" repeatCount="indefinite"/>
     </circle>
-
-    <!-- Cyber HUD Ring 1 (Dashed rotating outer reticle) -->
-    <circle cx="0" cy="0" r="86" fill="none" stroke="#00f2fe" stroke-width="1.2" stroke-dasharray="12 8" opacity="0.65" filter="url(#cyanGlow)">
-        <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="24s" repeatCount="indefinite"/>
-    </circle>
-
-    <!-- Cyber HUD Ring 2 (Counter-rotating tick ring) -->
-    <circle cx="0" cy="0" r="95" fill="none" stroke="#ff007f" stroke-width="1" stroke-dasharray="4 24" opacity="0.5" filter="url(#pinkGlow)">
-        <animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="18s" repeatCount="indefinite"/>
-    </circle>
-
-    <!-- Cardinal HUD Crosshair Marks -->
-    <g stroke="#00f2fe" stroke-width="1.5" opacity="0.6">
-        <line x1="-106" y1="0" x2="-86" y2="0"/>
-        <line x1="86" y1="0" x2="106" y2="0"/>
-        <line x1="0" y1="-106" x2="0" y2="-86"/>
-        <line x1="0" y1="86" x2="0" y2="106"/>
-    </g>
 </g>
 
-<!-- 5. Layer 3: Distant Ink Peaks with Synthwave Violet Mist (Núi xa tím huyền ảo) -->
-<path d="M0 320 L0 180 Q160 135 320 175 T640 155 T960 185 T1280 150 Q1360 160 1440 175 L1440 320 Z"
+<!-- 4. Layer 3: Distant Ink Mountains (Núi xa mờ ảo) -->
+<path d="M0 320 L0 180 Q160 140 320 175 T640 160 T960 185 T1280 155 Q1360 165 1440 180 L1440 320 Z"
       fill="url(#mtnFar)"/>
 
-<!-- 6. Layer 2: Mid-range Mountain with Cyan Edge Illumination -->
-<path d="M0 320 L0 215 Q120 155 250 195 T520 185 T820 215 T1150 175 Q1300 195 1440 220 L1440 320 Z"
+<!-- 5. Layer 2: Mid-range Majestic Peaks (Dãy núi thủy mặc trung cảnh) -->
+<path d="M0 320 L0 215 Q120 160 250 200 T520 190 T820 220 T1150 180 Q1300 200 1440 225 L1440 320 Z"
       fill="url(#mtnMid)"/>
-<!-- Neon rim light on mid mountain ridge -->
-<path d="M0 215 Q120 155 250 195 T520 185 T820 215 T1150 175 Q1300 195 1440 220"
-      fill="none" stroke="#00f2fe" stroke-width="0.8" opacity="0.3" filter="url(#cyanGlow)"/>
 
-<!-- 7. Layer 1: Foreground Rocky Silhouette (Vách đá đen tuyền cận cảnh) -->
+<!-- 6. Layer 1: Foreground Rocky Silhouette (Vách đá tiền cảnh sắc nét) -->
 <path d="M0 320 L0 260 Q180 230 380 270 T850 250 T1250 270 Q1350 255 1440 275 L1440 320 Z"
       fill="url(#mtnNear)"/>
 
-<!-- 8. Horizontal Qi / Data Pulse Wave across the water (Dòng khí công mạch quang) -->
-<path d="M0 270 Q180 265 360 272 T720 268 T1080 274 T1440 270"
-      fill="none" stroke="url(#neonCyan)" stroke-width="1.8" opacity="0.6" filter="url(#cyanGlow)">
-    <animate attributeName="d"
-             values="M0 270 Q180 265 360 272 T720 268 T1080 274 T1440 270;
-                     M0 270 Q180 274 360 266 T720 273 T1080 266 T1440 270;
-                     M0 270 Q180 265 360 272 T720 268 T1080 274 T1440 270"
-             dur="4s" repeatCount="indefinite"/>
-</path>
+<!-- 7. Ink Wash Mist / Clouds (Dải sương khói bồng bềnh) -->
+<g opacity="0.35">
+    <path d="M-200 240 Q100 210 400 240 T1000 230 T1600 240 L1600 280 L-200 280 Z" fill="#203045">
+        <animateTransform attributeName="transform" type="translate"
+            values="-100,0; 100,0; -100,0" dur="20s" repeatCount="indefinite"/>
+    </path>
+    <path d="M-200 270 Q200 250 600 270 T1200 260 T1800 270 L1800 320 L-200 320 Z" fill="#131c28">
+        <animateTransform attributeName="transform" type="translate"
+            values="80,0; -80,0; 80,0" dur="25s" repeatCount="indefinite"/>
+    </path>
+</g>
 
-<!-- 9. Solitary Pine Branch with Cyber Neon Tips (Cành Tùng điểm xuyết dạ quang) -->
-<g transform="translate(40, 20)" opacity="0.9">
-    <path d="M-40 0 Q60 50 120 40 T220 80 Q180 110 140 100" fill="none" stroke="#09111a" stroke-width="5" stroke-linecap="round"/>
-    <path d="M120 40 Q160 20 210 25" fill="none" stroke="#09111a" stroke-width="3" stroke-linecap="round"/>
-    <path d="M60 45 Q90 90 120 120" fill="none" stroke="#09111a" stroke-width="2.5" stroke-linecap="round"/>
-    <g fill="#09111a">
+<!-- 8. Solitary Pine / Bamboo Silhouette (Cành Trúc & Tùng bách cổ phong) -->
+<g transform="translate(40, 20)" opacity="0.85">
+    <!-- Main branch -->
+    <path d="M-40 0 Q60 50 120 40 T220 80 Q180 110 140 100" fill="none" stroke="#0a121a" stroke-width="5" stroke-linecap="round"/>
+    <path d="M120 40 Q160 20 210 25" fill="none" stroke="#0a121a" stroke-width="3" stroke-linecap="round"/>
+    <path d="M60 45 Q90 90 120 120" fill="none" stroke="#0a121a" stroke-width="2.5" stroke-linecap="round"/>
+    
+    <!-- Pine needles / Bamboo leaves clusters -->
+    <g fill="#0a121a">
         <ellipse cx="210" cy="25" rx="22" ry="7" transform="rotate(-15 210 25)"/>
         <ellipse cx="225" cy="28" rx="18" ry="6" transform="rotate(10 225 28)"/>
         <ellipse cx="220" cy="80" rx="25" ry="8" transform="rotate(25 220 80)"/>
         <ellipse cx="235" cy="85" rx="20" ry="7" transform="rotate(-5 235 85)"/>
         <ellipse cx="120" cy="120" rx="20" ry="6" transform="rotate(45 120 120)"/>
+        <ellipse cx="135" cy="125" rx="16" ry="5" transform="rotate(20 135 125)"/>
     </g>
-    <!-- Cyan bio-luminescent needle tips -->
-    <circle cx="230" cy="22" r="1.5" fill="#00f2fe" filter="url(#cyanGlow)"/>
-    <circle cx="242" cy="80" r="1.5" fill="#00f2fe" filter="url(#cyanGlow)"/>
-    <circle cx="140" cy="122" r="1.5" fill="#64ffda" filter="url(#cyanGlow)"/>
 </g>
 
-<!-- 10. Flying Immortal Cranes with Photon Light Trail (Tiên Hạc đuôi vệt quang) -->
-<g opacity="0.95">
+<!-- 9. Flying Immortal Cranes (Đôi Tiên Hạc Lướt Gió) -->
+<!-- Crane 1 -->
+<g opacity="0.9">
     <path d="M0 0 Q10 -6 16 -3 Q20 3 14 6 Q8 4 0 0 Z M6 -1 Q-5 -12 -12 -18 Q-8 -6 0 1 Z M6 2 Q-4 12 -10 20 Q-7 8 2 3 Z M16 -3 L24 -4 L16 -2 Z"
-          fill="#ffffff" filter="url(#cyanGlow)">
-        <animateMotion path="M 1250 85 Q 950 45 680 80 T 150 95" dur="18s" repeatCount="indefinite"/>
+          fill="#fbf9f0">
+        <animateMotion path="M 1250 80 Q 950 40 680 75 T 150 90" dur="18s" repeatCount="indefinite"/>
     </path>
 </g>
-<g opacity="0.8" transform="scale(0.7)">
+<!-- Crane 2 (Smaller follower) -->
+<g opacity="0.75" transform="scale(0.7)">
     <path d="M0 0 Q10 -6 16 -3 Q20 3 14 6 Q8 4 0 0 Z M6 -1 Q-5 -12 -12 -18 Q-8 -6 0 1 Z M6 2 Q-4 12 -10 20 Q-7 8 2 3 Z M16 -3 L24 -4 L16 -2 Z"
-          fill="#a6f1ff">
-        <animateMotion path="M 1320 120 Q 1020 80 750 115 T 220 130" dur="18s" repeatCount="indefinite"/>
+          fill="#fbf9f0">
+        <animateMotion path="M 1320 115 Q 1020 75 750 110 T 220 125" dur="18s" repeatCount="indefinite"/>
     </path>
 </g>
 
-<!-- 11. Drifting Petals & Neon Cyber Particles (Hoa Đào kết hợp hạt Cyber) -->
-<g opacity="0.85">
-    <!-- Glowing Petal 1 -->
-    <path d="M0 0 C4 -3 8 -1 7 4 C6 8 1 9 -1 6 C-3 3 -2 1 0 0 Z" fill="#ff4d8d" filter="url(#pinkGlow)">
+<!-- 10. Drifting Peach Petals (Cánh Hoa Đào Bay Lượn) -->
+<g fill="#f87171" opacity="0.75">
+    <!-- Petal 1 -->
+    <path d="M0 0 C4 -3 8 -1 7 4 C6 8 1 9 -1 6 C-3 3 -2 1 0 0 Z">
         <animateMotion path="M 200 30 Q 500 180 800 280 T 1400 320" dur="12s" repeatCount="indefinite"/>
         <animateTransform attributeName="transform" type="rotate" values="0;360" dur="4s" repeatCount="indefinite"/>
     </path>
-    <!-- Glowing Petal 2 -->
-    <path d="M0 0 C3 -2 6 -1 5 3 C4 6 1 7 -1 5 C-2 2 -1 1 0 0 Z" fill="#ff79c6">
+    <!-- Petal 2 -->
+    <path d="M0 0 C3 -2 6 -1 5 3 C4 6 1 7 -1 5 C-2 2 -1 1 0 0 Z">
         <animateMotion path="M 100 90 Q 400 220 700 290 T 1300 340" dur="15s" repeatCount="indefinite" begin="2s"/>
         <animateTransform attributeName="transform" type="rotate" values="360;0" dur="5s" repeatCount="indefinite"/>
     </path>
-    <!-- Floating Cyber Spark (Cyan) -->
-    <circle cx="0" cy="0" r="2.2" fill="#00f2fe" filter="url(#cyanGlow)">
-        <animateMotion path="M 350 20 Q 600 120 900 220 T 1450 280" dur="11s" repeatCount="indefinite"/>
-    </circle>
+    <!-- Petal 3 -->
+    <path d="M0 0 C4 -2 7 0 6 4 C5 7 1 8 0 5 C-1 3 0 1 0 0 Z">
+        <animateMotion path="M 400 20 Q 700 150 1000 270 T 1500 320" dur="14s" repeatCount="indefinite" begin="4s"/>
+        <animateTransform attributeName="transform" type="rotate" values="0;360" dur="6s" repeatCount="indefinite"/>
+    </path>
 </g>
 
-<!-- 12. Cyber-Classical Corner Borders (Viền Hồi Văn lai mạch điện tử) -->
-<g stroke="#00f2fe" stroke-width="1.6" fill="none" opacity="0.65" filter="url(#cyanGlow)">
-    <!-- Top-Left -->
+<!-- 11. Traditional Border Corners (Góc Cung Đình) -->
+<g stroke="#dfb76c" stroke-width="1.8" fill="none" opacity="0.65">
     <path d="M 25 45 L 25 25 L 45 25 M 32 25 L 32 38 L 45 38"/>
-    <circle cx="49" cy="38" r="1.5" fill="#00f2fe"/>
-    <!-- Top-Right -->
     <path d="M 1415 45 L 1415 25 L 1395 25 M 1408 25 L 1408 38 L 1395 38"/>
-    <circle cx="1391" cy="38" r="1.5" fill="#00f2fe"/>
-    <!-- Bottom-Left -->
     <path d="M 25 275 L 25 295 L 45 295 M 32 295 L 32 282 L 45 282"/>
-    <circle cx="49" cy="282" r="1.5" fill="#00f2fe"/>
-    <!-- Bottom-Right -->
     <path d="M 1415 275 L 1415 295 L 1395 295 M 1408 295 L 1408 282 L 1395 282"/>
-    <circle cx="1391" cy="282" r="1.5" fill="#00f2fe"/>
 </g>
 
-<!-- 13. Minimalist HUD Corner Tags (Chỉ số Cyber tinh tế ở 4 góc) -->
-<g font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="10" fill="#00f2fe" opacity="0.75" letter-spacing="1.5">
-    <text x="62" y="36">SYS://NEQQIPY_V2.6 [ONLINE]</text>
-    <text x="1230" y="36">QI_FLOW // SYNCHRONIZED</text>
-    <text x="62" y="286">STATUS: CULTIVATING</text>
-    <text x="1275" y="286">HCMUS // 192.168.1.1</text>
-</g>
-
-<!-- 14. Centerpiece: Red Cinnabar Neon Seal & Cyber-Gold Typography -->
+<!-- 12. Centerpiece: Red Cinnabar Seal & Modern Classical Typography -->
 <g transform="translate(720, 150)">
     
-    <!-- Red Seal Stamp with Neon Rim (Chu Sa Ấn ánh viền Neon) -->
+    <!-- Red Seal Stamp (Chu Sa Ấn với Chữ H Cách Điệu) -->
     <g transform="translate(-230, -36)">
-        <!-- Outer cyber glow box -->
-        <rect x="0" y="0" width="60" height="60" rx="6" fill="#b81d24" filter="url(#pinkGlow)"/>
+        <rect x="0" y="0" width="60" height="60" rx="6" fill="url(#sealGrad)" filter="url(#softGlow)"/>
         <!-- Inner carved border -->
-        <rect x="4" y="4" width="52" height="52" rx="4" fill="none" stroke="#ffd1dc" stroke-width="1.5" opacity="0.9"/>
+        <rect x="4" y="4" width="52" height="52" rx="4" fill="none" stroke="#ffcccc" stroke-width="1.5" opacity="0.8"/>
         <!-- Monogram: 'H' in classical serif style -->
         <text x="30" y="41" font-family="'Cinzel', 'Georgia', serif"
-              font-size="32" font-weight="900" fill="#ffffff" text-anchor="middle" filter="url(#pinkGlow)">
+              font-size="32" font-weight="900" fill="#fff5f5" text-anchor="middle">
             H
         </text>
-        <circle cx="13" cy="15" r="1.5" fill="#750f14" opacity="0.5"/>
-        <circle cx="47" cy="45" r="1.5" fill="#750f14" opacity="0.5"/>
+        <circle cx="13" cy="15" r="1.5" fill="#8a1717" opacity="0.4"/>
+        <circle cx="47" cy="45" r="1.5" fill="#8a1717" opacity="0.4"/>
     </g>
 
-    <!-- Main Title: Imperial Gold transitioning into Cyber Neon Cyan -->
+    <!-- Main Title: Name in Majestic Gold -->
     <text x="-145" y="-6"
           font-family="'Cinzel', 'Georgia', serif"
           font-size="34" font-weight="700" letter-spacing="6"
-          fill="url(#goldCyanTitle)" filter="url(#cyanGlow)">
+          fill="url(#goldGrad)" filter="url(#softGlow)">
         HƯNG ĐÀO  •  NEQQIPY
     </text>
 
-    <!-- Subtitle: Role with subtle Cyan / Gold glow -->
+    <!-- Subtitle: Clean English Role & Institution -->
     <text x="-140" y="24"
           font-family="'Cinzel', 'Georgia', serif"
-          font-size="13" font-weight="600" letter-spacing="4" fill="#64ffda" opacity="0.95">
-        CYBER CULTIVATOR  //  SYSTEMS ARCHITECT
+          font-size="13" font-weight="600" letter-spacing="4" fill="#dfb76c" opacity="0.9">
+        SOFTWARE CRAFTSMAN  //  SYSTEMS ARCHITECT
     </text>
 
-    <!-- Tagline: Code Philosophy with Cyber touch -->
+    <!-- Tagline: Philosophical Quote -->
     <text x="-140" y="46"
           font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
-          font-size="13" font-style="italic" letter-spacing="1" fill="#c4d5e8" opacity="0.85">
-        "Quiet focus in code, boundless horizons in the digital grid."
+          font-size="13" font-style="italic" letter-spacing="1" fill="#a5b9d0" opacity="0.85">
+        "Quiet focus in code, boundless horizons in craft."
     </text>
 
 </g>
 
-<!-- 15. Subtle Vignette & Neon Edge Border -->
-<rect width="1440" height="320" fill="none" stroke="#00f2fe" stroke-width="0.8" opacity="0.25"/>
+<!-- 13. Subtle Border Outline -->
+<rect width="1440" height="320" fill="none" stroke="#253549" stroke-width="1" opacity="0.4"/>
 
 </svg>
