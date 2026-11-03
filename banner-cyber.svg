@@ -1,0 +1,299 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 1441 302"
+     width="1441" height="302">
+
+<defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg" x2="1" y2="1">
+        <stop stop-color="#020711"/>
+        <stop offset=".5" stop-color="#09182b"/>
+        <stop offset="1" stop-color="#020610"/>
+    </linearGradient>
+
+    <!-- Neon Cyan Gradient -->
+    <linearGradient id="cyan">
+        <stop stop-color="#00f2fe"/>
+        <stop offset=".5" stop-color="#64ffda"/>
+        <stop offset="1" stop-color="#00f2fe"/>
+    </linearGradient>
+
+    <!-- Neon Purple Gradient -->
+    <linearGradient id="purple">
+        <stop stop-color="#7928ca"/>
+        <stop offset="1" stop-color="#ff00cc"/>
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="3" result="blur"/>
+        <feMerge>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+    </filter>
+
+    <!-- Signal Glitch Distortion -->
+    <filter id="signal" x="-10%" y="-20%" width="120%" height="140%">
+        <feTurbulence type="fractalNoise"
+                      baseFrequency=".018 .12"
+                      numOctaves="2"
+                      seed="4"
+                      result="noise">
+            <animate attributeName="baseFrequency"
+                     values=".018 .12;.04 .2;.01 .08;.018 .12"
+                     dur=".35s"
+                     repeatCount="indefinite"/>
+        </feTurbulence>
+        <feDisplacementMap in="SourceGraphic"
+                           in2="noise"
+                           scale="5"
+                           xChannelSelector="R"
+                           yChannelSelector="G">
+            <animate attributeName="scale"
+                     values="2;14;3;22;2"
+                     dur="2.4s"
+                     repeatCount="indefinite"/>
+        </feDisplacementMap>
+    </filter>
+
+    <!-- Cyber Grid Pattern -->
+    <pattern id="grid" width="40" height="40"
+             patternUnits="userSpaceOnUse">
+        <path d="M40 0H0V40"
+              fill="none"
+              stroke="#64ffda"
+              stroke-opacity=".07"/>
+    </pattern>
+
+    <!-- Dynamic Typing Mask -->
+    <clipPath id="typing">
+        <rect x="447" y="90" width="0" height="100">
+            <animate attributeName="width"
+                values="0;0;26;52;79;105;131;157;183;210;236;262;288;314;340;367;393;419;445;471;498;524;550;550;0"
+                keyTimes="0;0.03;0.07;0.11;0.14;0.18;0.22;0.26;0.3;0.33;0.37;0.41;0.45;0.49;0.53;0.56;0.6;0.64;0.68;0.72;0.75;0.79;0.83;0.94;1"
+                dur="7s"
+                repeatCount="indefinite"/>
+        </rect>
+    </clipPath>
+</defs>
+
+<!-- Background -->
+<rect width="1441" height="302" fill="url(#bg)"/>
+<rect width="1441" height="302" fill="url(#grid)"/>
+
+<!-- Background binary streams -->
+<g fill="#00f2fe" font-family="monospace"
+   font-size="11" opacity=".2">
+    <text x="120" y="65">101101001010110</text>
+    <text x="1100" y="55">010010110101011</text>
+    <text x="300" y="270">110010101101</text>
+    <text x="1200" y="265">101010010110</text>
+    <text x="200" y="120">010101101</text>
+    <text x="1020" y="180">110101001</text>
+    <animate attributeName="opacity"
+             values=".08;.3;.12;.2;.08"
+             dur="3s" repeatCount="indefinite"/>
+</g>
+
+<!-- Audio visualizer bars -->
+<g fill="#4facfe" opacity=".4" filter="url(#glow)">
+    <rect x="35" y="240" width="5" height="35" rx="2">
+        <animate attributeName="height"
+                 values="35;70;20;55;35"
+                 dur="1.3s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="47" y="220" width="5" height="55" rx="2">
+        <animate attributeName="height"
+                 values="55;25;75;35;55"
+                 dur="1.7s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="59" y="250" width="5" height="25" rx="2">
+        <animate attributeName="height"
+                 values="25;60;15;45;25"
+                 dur="1.1s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="71" y="230" width="5" height="45" rx="2">
+        <animate attributeName="height"
+                 values="45;20;65;30;45"
+                 dur="1.5s" repeatCount="indefinite"/>
+    </rect>
+</g>
+
+<!-- Main network waveform -->
+<path d="M0 150 H200 L250 150 L275 115 L300 190 L330 150 H1441"
+      fill="none" stroke="url(#cyan)"
+      stroke-width="1.5" opacity=".6" filter="url(#glow)">
+    <animate attributeName="d"
+        values="
+        M0 150 H200 L250 150 L275 115 L300 190 L330 150 H1441;
+        M0 150 H250 L300 150 L325 90 L350 210 L380 150 H1441;
+        M0 150 H200 L250 150 L275 115 L300 190 L330 150 H1441"
+        dur="4s" repeatCount="indefinite"/>
+</path>
+
+<!-- Purple signal wave -->
+<path d="M0 155 Q180 220 360 155 T720 155 T1080 155 T1441 155"
+      fill="none" stroke="#b620e0"
+      stroke-width="2" opacity=".5" filter="url(#glow)">
+    <animate attributeName="d"
+        values="
+        M0 155 Q180 220 360 155 T720 155 T1080 155 T1441 155;
+        M0 155 Q180 80 360 155 T720 155 T1080 155 T1441 155;
+        M0 155 Q180 220 360 155 T720 155 T1080 155 T1441 155"
+        dur="6s" repeatCount="indefinite"/>
+</path>
+
+<!-- Central scanner / Radar target -->
+<g transform="translate(720 151)">
+    <circle r="90" fill="#020711" opacity=".85"/>
+    <circle r="90" fill="none"
+            stroke="url(#cyan)" stroke-width="1.5"
+            stroke-dasharray="10 8" filter="url(#glow)">
+        <animateTransform attributeName="transform"
+            type="rotate" from="0" to="360"
+            dur="18s" repeatCount="indefinite"/>
+    </circle>
+
+    <circle r="76" fill="none"
+            stroke="#b620e0" stroke-width="1"
+            stroke-dasharray="30 15">
+        <animateTransform attributeName="transform"
+            type="rotate" from="360" to="0"
+            dur="12s" repeatCount="indefinite"/>
+    </circle>
+
+    <circle r="65" fill="none"
+            stroke="#64ffda" stroke-opacity=".5"
+            stroke-dasharray="2 6"/>
+
+    <path d="M-110 0H-85 M85 0H110 M0 -110V-85 M0 85V110"
+          stroke="#00f2fe" stroke-width="2"
+          filter="url(#glow)"/>
+</g>
+
+<!-- Glitch text layers (RGB channel split) -->
+<g font-family="monospace"
+   font-size="42" font-weight="bold"
+   text-anchor="middle">
+
+    <!-- Red channel jitter -->
+    <text x="723" y="166" fill="#ff0066"
+          opacity=".65" clip-path="url(#typing)">
+        Hi there, I'm Neqqipy
+        <animate attributeName="x"
+                 values="723;717;727;720;723"
+                 dur=".25s" repeatCount="indefinite"/>
+    </text>
+
+    <!-- Blue channel jitter -->
+    <text x="717" y="162" fill="#00f2fe"
+          opacity=".7" clip-path="url(#typing)">
+        Hi there, I'm Neqqipy
+        <animate attributeName="x"
+                 values="717;724;714;720;717"
+                 dur=".3s" repeatCount="indefinite"/>
+    </text>
+
+    <!-- Main text layer with cyan glow -->
+    <text x="720" y="164"
+          fill="#e0ffff"
+          filter="url(#glow)"
+          clip-path="url(#typing)">
+        Hi there, I'm Neqqipy
+    </text>
+</g>
+
+<!-- Blinking Typing Cursor -->
+<rect x="447" y="130" width="3" height="42"
+      fill="#64ffda" filter="url(#glow)">
+    <animate attributeName="x"
+        values="447;447;473;499;526;552;578;604;630;657;683;709;735;761;787;814;840;866;892;918;945;971;997;997;447"
+        keyTimes="0;0.03;0.07;0.11;0.14;0.18;0.22;0.26;0.3;0.33;0.37;0.41;0.45;0.49;0.53;0.56;0.6;0.64;0.68;0.72;0.75;0.79;0.83;0.94;1"
+        dur="7s" repeatCount="indefinite"/>
+    <animate attributeName="opacity"
+        values="1;0;1;1;0;1"
+        dur=".8s" repeatCount="indefinite"/>
+</rect>
+
+<!-- Subtitle / Glitch Terminal Commands -->
+<g font-family="monospace" font-size="12"
+   fill="#64ffda" opacity=".6">
+    <text x="500" y="205">[ CONNECTING TO NEQQIPY.EXE ]</text>
+    <text x="860" y="205">[ SYSTEM ONLINE ]</text>
+    <animate attributeName="opacity"
+             values=".1;.7;.2;.8;.1"
+             dur="2s" repeatCount="indefinite"/>
+</g>
+
+<!-- Signal scan bands -->
+<g fill="#00f2fe" opacity=".2">
+    <rect x="0" y="65" width="1441" height="3">
+        <animate attributeName="y"
+                 values="65;220;90;180;65"
+                 dur="3s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="0" y="190" width="1441" height="2">
+        <animate attributeName="y"
+                 values="190;40;230;100;190"
+                 dur="2.5s" repeatCount="indefinite"/>
+    </rect>
+</g>
+
+<!-- CRT Scanlines -->
+<g opacity=".12">
+    <path d="M0 0H1441 M0 4H1441 M0 8H1441
+             M0 12H1441 M0 16H1441 M0 20H1441
+             M0 24H1441 M0 28H1441 M0 32H1441
+             M0 36H1441 M0 40H1441 M0 44H1441
+             M0 48H1441 M0 52H1441 M0 56H1441
+             M0 60H1441 M0 64H1441 M0 68H1441
+             M0 72H1441 M0 76H1441 M0 80H1441
+             M0 84H1441 M0 88H1441 M0 92H1441
+             M0 96H1441 M0 100H1441 M0 104H1441
+             M0 108H1441 M0 112H1441 M0 116H1441
+             M0 120H1441 M0 124H1441 M0 128H1441
+             M0 132H1441 M0 136H1441 M0 140H1441
+             M0 144H1441 M0 148H1441 M0 152H1441
+             M0 156H1441 M0 160H1441 M0 164H1441
+             M0 168H1441 M0 172H1441 M0 176H1441
+             M0 180H1441 M0 184H1441 M0 188H1441
+             M0 192H1441 M0 196H1441 M0 200H1441
+             M0 204H1441 M0 208H1441 M0 212H1441
+             M0 216H1441 M0 220H1441 M0 224H1441
+             M0 228H1441 M0 232H1441 M0 236H1441
+             M0 240H1441 M0 244H1441 M0 248H1441
+             M0 252H1441 M0 256H1441 M0 260H1441
+             M0 264H1441 M0 268H1441 M0 272H1441
+             M0 276H1441 M0 280H1441 M0 284H1441
+             M0 288H1441 M0 292H1441 M0 296H1441"
+          stroke="#64ffda" stroke-width=".7"/>
+</g>
+
+<!-- Noise overlay filter -->
+<rect width="1441" height="302"
+      fill="#fff" opacity=".025"
+      filter="url(#signal)"
+      pointer-events="none"/>
+
+<!-- Terminal Headers & Status Badges -->
+<g font-family="monospace" font-size="10"
+   fill="#00f2fe">
+    <text x="25" y="25">NEQQIPY_OS // TERMINAL v1.0</text>
+    <text x="25" y="285">SIGNAL: UNSTABLE</text>
+    <text x="1300" y="25">CYBER_MODE: ON</text>
+    <text x="1270" y="285">HCMUS // 192.168.1.1</text>
+    <animate attributeName="opacity"
+             values="1;.3;1;1;.1;1"
+             dur="3s" repeatCount="indefinite"/>
+</g>
+
+<!-- Glitch flash effect -->
+<rect width="1441" height="302"
+      fill="#00f2fe" opacity="0">
+    <animate attributeName="opacity"
+             values="0;0;0;.12;0;0;.2;0;0"
+             dur="5s" repeatCount="indefinite"/>
+</rect>
+
+</svg>
