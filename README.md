@@ -1,5 +1,10 @@
 <p align="center">
-  <img src="banner-cyber.svg" width="100%" alt="Cyberpunk Banner">
+  <img src="banner-cyber.svg" width="100%" alt="Classical Ink Wash Banner">
+</p>
+
+<p align="center">
+  <img src="https://github-readme-stats-steel-three.vercel.app/api?username=Neqqipy&show_icons=true&title_color=dfb76c&text_color=c9d1d9&icon_color=dfb76c&bg_color=070a12&hide_border=true" alt="GitHub Stats" />
+  <img src="https://github-readme-stats-steel-three.vercel.app/api/top-langs/?username=Neqqipy&layout=compact&title_color=dfb76c&text_color=c9d1d9&bg_color=070a12&hide_border=true" alt="Top Languages" />
 </p>
 
 
